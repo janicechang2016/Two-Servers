@@ -1,34 +1,29 @@
-// //port 7000
-// const http = require("http");
-
-// const PORT = 7000;
-
-// function handleRequest(request, response) {
-
-//   response.end("Compliment goes here");
-// }
-
-// const server = http.createServer(handleRequest);
-
-// server.listen(PORT, function() {
-
-//   console.log("Server listening on: http://localhost:" + PORT);
-// });
-
-
-//port 7500
 const http = require("http");
 
-const PORT = 7500;
+const PORTone = 7000;
+const PORTtwo = 7500;
 
-function handleRequest(request, response) {
+function handleRequestOne(request, response) {
+
+  response.end("Compliment goes here");
+}
+
+function handleRequestTwo(request, response) {
 
   response.end("Insult goes here");
 }
 
-const server = http.createServer(handleRequest);
+var serverOne = http.createServer(handleRequestOne);
+var serverTwo = http.createServer(handleRequestTwo);
 
-server.listen(PORT, function() {
 
-  console.log("Server listening on: http://localhost:" + PORT);
+serverOne.listen(PORTone, function() {
+
+  console.log("Server listening on: http://localhost:" + PORTone);
+});
+
+
+serverTwo.listen(PORTtwo, function() {
+
+  console.log("Server listening on: http://localhost:" + PORTtwo);
 });
